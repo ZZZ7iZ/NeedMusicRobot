@@ -63,7 +63,7 @@ async def spotify_dl(_, message):
             for item in items:
                 PForCopy = await message.reply_photo(
                     item[5],
-                    caption=f"✔️ Episode Name : `{item[3]}`\n🕔 Duration : {item[4]//60}:{item[4]%60}",
+                    caption=f"✔️ **اسم الحلقة** : `{item[3]}`\n🕔 **مدة** : {item[4]//60}:{item[4]%60}",
                 )
                 fileLink = await ytdl_down(
                     audio_opt(randomdir, item[2]),
@@ -85,7 +85,7 @@ async def spotify_dl(_, message):
             song = await fetch_spotify_track(client, item_id)
             PForCopy = await message.reply_photo(
                 song.get("cover"),
-                caption=f"🎧 Title : `{song['name']}`\n🎤 Artist : `{song['artist']}`\n💽 Album : `{song['album']}`\n🎼 Genre : `{song['genre']}`\n🗓 Release Year: `{song['year']}`",
+                caption=f"🎧 Title : `{song['name']}`\n🎤 **الفنان** : `{song['artist']}`\n💽 **الألبوم** : `{song['album']}`\n🎼 **النوع** : `{song['genre']}`\n🗓 **سنة الإصدار** : `{song['year']}`",
             )
             path = await download_songs(song, randomdir)
             thumbnail = await thumb_down(song.get("cover"), song.get("name"))
@@ -111,7 +111,7 @@ async def spotify_dl(_, message):
                 )
                 PForCopy = await message.reply_photo(
                     song.get("cover"),
-                    caption=f"🎧 Title : `{song['name']}`\n🎤 Artist : `{song['artist']}`\n💽 Album : `{song['album']}`\n🎼 Genre : `{song['genre']}`\n🗓 Release Year: `{song['year']}`\n🔢 Track No: `{track_no}`\n🔢 Total Track: `{total_tracks}`",
+                    caption=f"🎧**االعنوان** : `{song['name']}`\🎤**الفنان** : `{song['artist']}`\n💽 **الألبوم** : `{song['album']}`\n🎼 Genre : `{song['genre']}`\n🗓 Release Year: `{song['year']}`\n🔢 Track No: `{track_no}`\n🔢 Total Track: `{total_tracks}`",
                 )
                 path = await download_songs(song, randomdir)
                 thumbnail = await thumb_down(
