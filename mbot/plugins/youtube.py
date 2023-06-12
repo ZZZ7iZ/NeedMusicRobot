@@ -37,7 +37,7 @@ from mbot.utils.ytdl import audio_opt, getIds, thumb_down, ytdl_down
     & filters.chat(AUTH_CHATS)
 )
 async def _(_, message):
-    m = await message.reply_text("Gathering information... Please Wait.")
+    m = await message.reply_text("**جمع المعلومات... انتظر من فضلك.**")
     link = message.matches[0].group(0)
     if link in [
         "https://youtube.com/",
@@ -45,7 +45,7 @@ async def _(_, message):
         "https://youtu.be/",
         "https://youtu.be",
     ]:
-        return await m.edit_text("Please send a valid playlist or video link.")
+        return await m.edit_text("**يرجى إرسال قائمة تشغيل أو رابط فيديو صالح.**")
     elif "channel" in link or "/c/" in link:
         return await m.edit_text("**Channel** Download Not Available. ")
     try:
@@ -56,7 +56,7 @@ async def _(_, message):
         for id in ids:
             PForCopy = await message.reply_photo(
                 f"https://i.ytimg.com/vi/{id[0]}/hqdefault.jpg",
-                caption=f"🎧 Title : `{id[3]}`\n🎤 Artist : `{id[2]}`\n💽 Track No : `{id[1]}`\n💽 Total Track : `{videoInPlaylist}`",
+                caption=f"🎧 **العنوان** : `{id[3]}`\n🎤 **الفنان** : `{id[2]}`\n💽 **رقم المسار** : `{id[1]}`\n💽 **إجمالي المسار** : `{videoInPlaylist}`",
             )
             fileLink = await ytdl_down(audio_opt(randomdir, id[2]), id[0])
             thumnail = await thumb_down(id[0])
