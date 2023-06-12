@@ -54,7 +54,7 @@ def thumb_down(link, name):
         else:
             file.write(
                 get(
-                    "https://telegra.ph/file/39bf16afe2fb5b0f13be3.jpg"
+                    "https://telegra.ph/file/669f0a8afd6907a73c78c.jpg"
                 ).content
             )
     return f"/tmp/thumbnails/{name}.jpg"
